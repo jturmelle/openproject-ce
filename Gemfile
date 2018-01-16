@@ -126,6 +126,8 @@ gem 'cells-erb', '~> 0.0.8'
 
 gem 'meta-tags', '~> 2.6.0'
 
+gem 'aws-sdk', '~> 2.10.1'
+
 group :production do
   # we use dalli as standard memcache client
   # requires memcached 1.4+
@@ -196,7 +198,6 @@ group :test do
   # brings back testing for 'assigns' and 'assert_template' extracted in rails 5
   gem 'rails-controller-testing', '~> 1.0.2'
 
-  gem 'aws-sdk', '~> 2.10.1'
   gem 'capybara', '~> 2.15.0'
   gem 'capybara-screenshot', '~> 1.0.14'
   gem 'fuubar', '~> 2.2.0'
