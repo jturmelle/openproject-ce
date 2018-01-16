@@ -197,13 +197,6 @@ PATH
       reporting_engine (>= 1.1.0)
 
 PATH
-  remote: vendored-plugins/openproject-two_factor_authentication
-  specs:
-    openproject-two_factor_authentication (7.4.0)
-      rails (~> 5)
-      rotp (~> 3.3)
-
-PATH
   remote: vendored-plugins/openproject-webhooks
   specs:
     openproject-webhooks (7.4.0)
@@ -677,7 +670,6 @@ GEM
     retriable (3.0.2)
     roar (1.1.0)
       representable (~> 3.0.0)
-    rotp (3.3.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -902,7 +894,6 @@ DEPENDENCIES
   openproject-reporting!
   openproject-token (~> 1.0.1)
   openproject-translations!
-  openproject-two_factor_authentication!
   openproject-webhooks!
   openproject-xls_export!
   parallel_tests (~> 2.14.0)
