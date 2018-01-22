@@ -28,14 +28,18 @@
 # See doc/COPYRIGHT.rdoc for more details.
 #++
 
-module OpenProject
-  module SafeParams
-    def safe_query_params(whitelist = [])
-      request.query_parameters.select { |k, _| whitelist.include?(k) }
+class AddHierarchyPaths < ActiveRecord::Migration[5.0]
+  def change
+    create_table :hierarchy_paths do |t|
+      t.belongs_to :work_package, index: { unique: true }
+      # (255 * 3) = ca 767 bytes is the max length for an index in mysql 5.6 InnoDB
+      t.string :path, null: false, limit: 255
+
+      t.index :path
     end
 
-    def pagination_params_whitelist
-      safe_query_params %w(per_page page)
+    reversible do |dir|
+      dir.up { Relation.rebuild_hierarchy_paths! }
     end
   end
 end
