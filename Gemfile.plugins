@@ -31,3 +31,7 @@ group :opf_plugins do
   gem "openproject-webhooks", path: "vendored-plugins/openproject-webhooks"
   gem "openproject-github_integration", path: "vendored-plugins/openproject-github_integration"
 end
+
+group :development, :test do
+    gem 'ladle'
+end
