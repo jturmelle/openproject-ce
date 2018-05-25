@@ -1,13 +1,13 @@
 #-- encoding: UTF-8
 #-- copyright
 # OpenProject is a project management system.
-# Copyright (C) 2012-2014 the OpenProject Foundation (OPF)
+# Copyright (C) 2012-2017 the OpenProject Foundation (OPF)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License version 3.
 #
 # OpenProject is a fork of ChiliProject, which is a fork of Redmine. The copyright follows:
-# Copyright (C) 2006-2013 Jean-Philippe Lang
+# Copyright (C) 2006-2017 Jean-Philippe Lang
 # Copyright (C) 2010-2013 the ChiliProject Team
 #
 # This program is free software; you can redistribute it and/or
@@ -27,8 +27,30 @@
 # See doc/COPYRIGHT.rdoc for more details.
 #++
 
-module OpenProject
-  module AuthPlugins
-    VERSION = "7.4.6"
+module ::UserConsentHelper
+
+  def consent_param?
+    params[:consent_check].present?
+  end
+
+  def user_consent_required?
+    # Ensure consent is enabled and a text is provided
+    Setting.consent_required? && consent_configured?
+  end
+
+  def user_consent_instructions(user)
+    language = user.try(:language) || Setting.default_language
+    all = Setting.consent_info
+    all.fetch(language) { all.values.first }
+  end
+
+  def consent_configured?
+    if Setting.consent_info.count == 0
+      Rails.logger.error 'Instance is configured to require consent, but no consent_info has been set.'
+
+      false
+    else
+      true
+    end
   end
 end
