@@ -179,7 +179,7 @@ PATH
   remote: vendored-plugins/openproject-openid_connect
   specs:
     openproject-openid_connect (7.4.6)
-      lobby_boy (~> 0.1)
+      lobby_boy (~> 0.1.3)
       omniauth-openid_connect-providers (~> 0.1)
       openproject-auth_plugins (~> 7.0)
       rails (~> 5.0)
