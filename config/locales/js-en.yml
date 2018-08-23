@@ -113,6 +113,7 @@ en:
           button: 'Include content of another wiki page'
           text: '[Placeholder] Included wiki page of'
           page: 'Wiki page'
+          not_set: '(Page not yet set)'
           hint: |
             Include the content of another wiki page by specifying its title or slug.
             You can include the wiki page of another project by separating them with a colon like the following example.
@@ -131,6 +132,7 @@ en:
       internal: "An internal error has occurred."
       cannot_save_changes_with_message: "Cannot save your changes due to the following error: %{error}"
       query_saving: "The view could not be saved."
+      embedded_table_loading: "The embedded view could not be loaded: %{message}"
     filter:
       description:
         text_open_filter: "Open this filter with 'ALT' and arrow keys."
@@ -429,6 +431,7 @@ en:
           Note that when hovering an element, its date labels will be shown instead of these attributes.
 
       button_activate: 'Show Gantt chart'
+      button_deactivate: 'Hide Gantt chart'
       cancel: Cancel
       change: "Change in planning"
       due_date: "Due date"
@@ -470,6 +473,9 @@ en:
         quarters: "Quarters"
         years: "Years"
         slider: "Zoom slider"
+        description: >
+          Either select the initial zoom level that should be shown or check the auto zoom box to adjust the gantt chart
+          to fit the visible area.
     tl_toolbar:
       zooms: "Zoom level"
       outlines: "Hierarchy level"

@@ -1,4 +1,3 @@
-#-- encoding: UTF-8
 #-- copyright
 # OpenProject is a project management system.
 # Copyright (C) 2012-2018 the OpenProject Foundation (OPF)
@@ -27,14 +26,27 @@
 # See docs/COPYRIGHT.rdoc for more details.
 #++
 
-module Queries::Operators
-  class NotContains < Base
-    label 'not_contains'
-    set_symbol '!~'
+require 'spec_helper'
+require 'features/page_objects/notification'
+require 'features/work_packages/shared_contexts'
+require 'features/work_packages/work_packages_page'
 
-    def self.sql_for_field(values, db_table, db_field)
-      "COALESCE(LOWER(#{db_table}.#{db_field}), '') NOT LIKE " +
-        "'%#{connection.quote_string(values.first.to_s.downcase)}%'"
-    end
+feature 'Wiki menu items' do
+  let(:user) do
+    FactoryBot.create :user,
+                      member_in_project: project,
+                      member_with_permissions: %w[view_wiki_pages]
+  end
+  let(:project) { FactoryBot.create :project, enabled_module_names: %w[wiki] }
+  let(:wiki) { project.wiki }
+
+  before do
+    login_as user
+    visit index_project_wiki_index_path(project)
+  end
+
+  it 'allows managing the menu item of a wiki page' do
+    expect(page).to have_selector('h2', text: 'Table of Contents')
+    expect(page).to have_no_selector('.main-menu--children .selected')
   end
 end
