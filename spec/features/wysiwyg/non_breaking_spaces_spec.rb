@@ -26,17 +26,43 @@
 # See docs/COPYRIGHT.rdoc for more details.
 #++
 
-Feature: Adding a user
+require 'spec_helper'
 
-  Scenario: as an admin a user can be created
-    Given I am already admin
-    When I go to the new user page
-    And I fill in "Paul" for "user_firstname"
-    And I fill in "Smith" for "user_lastname"
-    And I fill in "psmith@somenet.foo" for "user_mail"
-    And I submit the form by the "Create" button
-    Then I should see "Successful creation"
-    And I should be on the edit page of the user "psmith@somenet.foo"
-    When I logout
-    And I login as "psmith@somenet.foo" with password "psmithPSMITH09"
-    Then I should see "Your account has not yet been activated."
+describe 'Wysiwyg &nbsp; behavior',
+         type: :feature, js: true do
+  let(:user) { FactoryBot.create :admin }
+  let(:project) { FactoryBot.create(:project, enabled_module_names: %w[wiki]) }
+  let(:editor) { ::Components::WysiwygEditor.new }
+
+  before do
+    login_as(user)
+  end
+
+  describe 'in wikis' do
+    describe 'creating a wiki page' do
+      before do
+        visit project_wiki_path(project, :wiki)
+      end
+
+      it 'can insert strong formatting with nbsp' do
+        editor.in_editor do |container, editable|
+
+          editor.click_and_type_slowly 'some text '
+          container.find('.ck-button', visible: :all, text: 'Bold').click
+
+          editor.click_and_type_slowly 'with bold '
+        end
+
+        # Save wiki page
+        click_on 'Save'
+
+        expect(page).to have_selector('.flash.notice')
+
+        within('#content') do
+          expect(page).to have_selector('p', text: 'some text with bold')
+          expect(page).to have_selector('strong', text: 'with bold')
+        end
+      end
+    end
+  end
+end
