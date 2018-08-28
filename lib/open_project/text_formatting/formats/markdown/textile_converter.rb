@@ -294,7 +294,7 @@ module OpenProject::TextFormatting::Formats
       end
 
       def split_markdown(markdown)
-        markdown.split(DOCUMENT_BOUNDARY).map(&:strip)
+        markdown.split("\n\n#{DOCUMENT_BOUNDARY}\n\n")
       end
 
       def cleanup_before_pandoc(textile)
@@ -316,7 +316,8 @@ module OpenProject::TextFormatting::Formats
         markdown.gsub!(/^((\\[*>])+)/) { $1.gsub("\\", "") }
 
         # Add a blank line before lists
-        markdown.gsub!(/^([^*].*)\n\*/, "\\1\n\n*")
+        # But do not apply it to *emphasis* or **strong** at the start of a line (whitespace is important)
+        markdown.gsub!(/^([^*].*)\n\* /, "\\1\n\n* ")
 
         # Remove the injected tag
         markdown.gsub!(' ' + TAG_FENCED_CODE_BLOCK, '')
