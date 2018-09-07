@@ -43,10 +43,12 @@ describe 'Login', type: :feature do
   context 'sign in user' do
     let(:user_password) { 'bob' * 4 }
     let(:new_user_password) { 'obb' * 4 }
+    let(:force_password_change) { false }
+    let(:first_login) { false }
     let(:user) do
       FactoryBot.create(:user,
-                        force_password_change: true,
-                        first_login: true,
+                        force_password_change: force_password_change,
+                        first_login: first_login,
                         login: 'bob',
                         mail: 'bob@example.com',
                         firstname: 'Bo',
@@ -55,36 +57,61 @@ describe 'Login', type: :feature do
                         password_confirmation: user_password)
     end
 
-    it 'redirects to homescreen after forced password change
-       (with validation error) and first login' do
-      # first login
-      visit signin_path
-      within('#login-form') do
-        fill_in('username', with: user.login)
-        fill_in('password', with: user_password)
-        click_link_or_button I18n.t(:button_login)
+    context 'with force password change' do
+      let(:force_password_change) { true }
+      let(:first_login) { true }
+
+      it 'redirects to homescreen after forced password change
+         (with validation error) and first login' do
+        # first login
+        login_with(user.login, user.password)
+        expect(current_path).to eql signin_path
+
+        # change password page (giving an invalid password)
+        within('#main') do
+          fill_in('password', with: user_password)
+          fill_in('new_password', with: new_user_password)
+          fill_in('new_password_confirmation', with: new_user_password + 'typo')
+          click_link_or_button I18n.t(:button_save)
+        end
+        expect(current_path).to eql account_change_password_path
+
+        # change password page
+        within('#main') do
+          fill_in('password', with: user_password)
+          fill_in('new_password', with: new_user_password)
+          fill_in('new_password_confirmation', with: new_user_password)
+          click_link_or_button I18n.t(:button_save)
+        end
+
+        # on the my page
+        expect(current_path).to eql '/'
       end
+    end
+
+    it 'prevents login for a blocked user' do
+      user.lock!
+
+      login_with(user.login, user.password)
+
       expect(current_path).to eql signin_path
+      expect(page)
+        .to have_content "Invalid user or password"
+    end
 
-      # change password page (giving an invalid password)
-      within('#main') do
-        fill_in('password', with: user_password)
-        fill_in('new_password', with: new_user_password)
-        fill_in('new_password_confirmation', with: new_user_password + 'typo')
-        click_link_or_button I18n.t(:button_save)
-      end
-      expect(current_path).to eql account_change_password_path
+    it 'forwards to the deep linked page after login' do
+      visit my_page_path
 
-      # change password page
-      within('#main') do
-        fill_in('password', with: user_password)
-        fill_in('new_password', with: new_user_password)
-        fill_in('new_password_confirmation', with: new_user_password)
-        click_link_or_button I18n.t(:button_save)
-      end
+      expect(page)
+        .to have_field('Login')
 
-      # on the my page
-      expect(current_path).to eql '/'
+      fill_in('Login', with: user.login)
+      fill_in('Password', with: user_password)
+
+      click_button(I18n.t(:button_login))
+
+      expect(page)
+        .to have_current_path my_page_path
     end
   end
 end
