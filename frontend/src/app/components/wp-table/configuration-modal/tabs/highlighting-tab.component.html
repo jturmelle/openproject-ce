@@ -1,0 +1,52 @@
+<div>
+  <form>
+    <p [textContent]="text.highlighting_mode.description"></p>
+    <div class="form--field -full-width">
+      <div class="form--field-container">
+        <label class="option-label">
+          <input type="radio"
+                 [(ngModel)]="highlightingMode"
+                 (change)="updateMode($event.target.value)"
+                 value="inline"
+                 name="highlighting_mode_switch">
+          {{ text.highlighting_mode.inline }}
+        </label>
+      </div>
+    </div>
+    <div class="form--field -full-width">
+      <div class="form--field-container">
+        <label class="option-label">
+          <input type="radio"
+                 [(ngModel)]="entireRowMode"
+                 (change)="updateMode('entire-row')"
+                 [value]="true"
+                 name="entire_row_switch">
+          {{ text.highlighting_mode.entire_row_by }}
+          <select (change)="updateMode($event.target.value)"
+                  id="selected_attribute"
+                  name="selected_attribute"
+                  class="form--select form--inline-select">
+            <option [textContent]="text.highlighting_mode.status"
+                    [selected]="lastEntireRowAttribute === 'status'"
+                    value="status"></option>
+            <option [textContent]="text.highlighting_mode.priority"
+                    [selected]="lastEntireRowAttribute === 'priority'"
+                    value="priority"></option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="form--field -full-width">
+      <div class="form--field-container">
+        <label class="option-label">
+          <input type="radio"
+                 [(ngModel)]="highlightingMode"
+                 (change)="updateMode($event.target.value)"
+                 value="none"
+                 name="highlighting_mode_switch">
+          {{ text.highlighting_mode.none }}
+        </label>
+      </div>
+    </div>
+  </form>
+</div>

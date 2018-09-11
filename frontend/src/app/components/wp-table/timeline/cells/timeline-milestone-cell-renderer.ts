@@ -58,7 +58,7 @@ export class TimelineMilestoneCellRenderer extends TimelineCellRenderer {
 
   /**
    * Assign changed dates to the work package.
-   * For generic work packages, assigns start and due date.
+   * For generic work packages, assigns start and finish date .
    *
    */
   public assignDateValues(changeset:WorkPackageChangeset,
@@ -130,7 +130,7 @@ export class TimelineMilestoneCellRenderer extends TimelineCellRenderer {
     diamond.style.width = 15 + 'px';
     diamond.style.height = 15 + 'px';
     diamond.style.marginLeft = -(15 / 2) + (renderInfo.viewParams.pixelPerDay / 2) + 'px';
-    diamond.style.backgroundColor = this.typeColor(renderInfo.workPackage);
+    this.applyTypeColor(renderInfo.workPackage, diamond);
 
     // offset left
     const offsetStart = date.diff(viewParams.dateDisplayStart, 'days');
