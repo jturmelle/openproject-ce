@@ -1,4 +1,4 @@
-//-- copyright
+// -- copyright
 // OpenProject is a project management system.
 // Copyright (C) 2012-2015 the OpenProject Foundation (OPF)
 //
@@ -24,39 +24,60 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //
 // See doc/COPYRIGHT.rdoc for more details.
-//++
+// ++
 
-import {HalResourceService} from 'core-app/modules/hal/services/hal-resource.service';
 import {Inject, Injectable} from '@angular/core';
-import {RootResource} from 'core-app/modules/hal/resources/root-resource';
-import {CollectionResource} from 'core-app/modules/hal/resources/collection-resource';
-import {TypeResource} from 'core-app/modules/hal/resources/type-resource';
-import {States} from 'core-app/components/states.service';
-import {PathHelperService} from 'core-app/modules/common/path-helper/path-helper.service';
+import {DOCUMENT} from "@angular/common";
+import {PathHelperService} from "../path-helper/path-helper.service";
 
 @Injectable()
-export class TypeDmService {
-  constructor(protected halResourceService:HalResourceService,
-              protected states:States,
+export class DynamicCssService {
+
+  public stylesheets:{[identifier:string]: string} = {
+    highlighting: this.pathHelper.staticBase + '/highlighting/styles.css'
+  };
+
+  constructor(@Inject(DOCUMENT) protected documentElement:Document,
               protected pathHelper:PathHelperService) {
   }
 
-  public loadAll(projectIdentifier:string|undefined):Promise<TypeResource[]> {
-    const typeUrl = this.pathHelper.api.v3.withOptionalProject(projectIdentifier).types.toString();
-
-    return this.halResourceService
-      .get<CollectionResource<TypeResource>>(typeUrl)
-      .toPromise()
-      .then((result:CollectionResource<TypeResource>) => {
-        // TODO move into a TypeCacheService
-        _.each(result.elements, (type) => this.states.types.get(type.href!).putValue(type));
-        return result.elements;
-      });
+  public requireHighlighting() {
+    this.require('highlighting');
   }
 
-  public load():Promise<RootResource> {
-    return this.halResourceService
-      .get<RootResource>(this.pathHelper.api.v3.root.toString())
-      .toPromise();
+  public require(style:string) {
+    this.assertExists(style);
+
+    if (this.isLoaded(style)) {
+      return;
+    }
+
+    const link = this.documentElement.createElement('link');
+    link.id   = `dynamic-stylesheet-${style}`;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = this.stylesheets[style]!;
+    link.media = 'all';
+
+    this.documentElement
+      .head
+      .appendChild(link);
   }
+
+  public assertExists(style:string) {
+    if (!this.stylesheets[style]) {
+      throw `Unknown stylesheet ${style}`;
+    }
+  }
+
+  public isLoaded(style:string):boolean {
+    const styleUrl = this.stylesheets[style];
+
+    if (!styleUrl) {
+      return false;
+    }
+
+    return !!this.documentElement.getElementById(`dynamic-stylesheet-${style}`);
+  }
+
 }
