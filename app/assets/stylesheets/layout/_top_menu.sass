@@ -141,9 +141,12 @@ $hamburger-width: 50px
 
   .drop-down--help
     .form--separator
-      margin-bottom: 5px
+      margin-bottom: 10px
+      &+ li
+        margin-bottom: 5px
     .drop-down--help-headline
-      padding-left: 15px
+      padding-left: 10px
+      font-size: 12px
       color: $gray-dark
       text-transform: uppercase
 
@@ -245,6 +248,7 @@ input.top-menu-search--input
   display: block
   li
     a
+      @include text-shortener
       display: block
       padding: 0 9px 0
 

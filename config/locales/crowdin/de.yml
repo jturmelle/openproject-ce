@@ -410,7 +410,7 @@ de:
         warn_on_leaving_unsaved: Beim Verlassen einer Arbeitspaket-Seite mit ungespeichertem
           Text warnen
       version:
-        effective_date: Finish date
+        effective_date: Endtermin
         sharing: Gemeinsame Verwendung
       wiki_content:
         text: Text
@@ -434,7 +434,7 @@ de:
         progress: Fortschritt (%)
         spent_hours: Aufgewendete Zeit
         spent_time: Aufgewendete Zeit
-        subproject: Unterprojekt von
+        subproject: Unterprojekt
         time_entries: Zeit buchen
         type: Typ
         watcher: Beobachter
@@ -665,7 +665,7 @@ de:
     default_columns: Standard-Spalten
     description: Beschreibung
     display_sums: Summen anzeigen
-    due_date: Finish date
+    due_date: Endtermin
     estimated_hours: Geschätzter Aufwand
     estimated_time: Geschätzter Aufwand
     firstname: Vorname
@@ -687,7 +687,7 @@ de:
     responsible: Verantwortlich
     role: Rolle
     roles: Rollen
-    start_date: Beginn
+    start_date: Anfangstermin
     status: Status
     subject: Thema
     summary: Zusammenfassung
@@ -1569,7 +1569,7 @@ de:
   label_storage_group: Speicher-Dateisystem %{identifier}
   label_storage_for: Umfasst Speicher für
   label_string: Text
-  label_subproject: Unterprojekt von
+  label_subproject: Unterprojekt
   label_subproject_new: Neues Unterprojekt
   label_subproject_plural: Unterprojekte
   label_subtask_plural: Unteraufgaben
@@ -2004,7 +2004,7 @@ de:
     assigned_to_role: Rolle der zugewiesenen Person
     member_of_group: Gruppe der zugewiesenen Person
     assignee_or_group: Zugewiesen an Nutzer oder dessen Gruppe
-    subproject_id: Unterprojekt von
+    subproject_id: Unterprojekt
     name_or_identifier: Name oder Kennung
   repositories:
     at_identifier: auf %{identifier}

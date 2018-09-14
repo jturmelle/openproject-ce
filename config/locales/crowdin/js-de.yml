@@ -415,7 +415,7 @@ de:
       button_deactivate: Gantt-Diagramm ausblenden
       cancel: Abbrechen
       change: Planungsänderung
-      due_date: Finish date
+      due_date: Endtermin
       empty: "(leer)"
       error: Ein Fehler ist aufgetreten.
       errors:
@@ -569,7 +569,7 @@ de:
         createdAt: Angelegt am
         description: Beschreibung
         date: Datum
-        dueDate: Finish date
+        dueDate: Endtermin
         estimatedTime: Geschätzter Aufwand
         spentTime: Aufgewendete Zeit
         category: Kategorie
