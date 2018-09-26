@@ -62,5 +62,5 @@ case "$1" in
             bin/parallel_test --type cucumber -n $2 --only-group $3 features
             ;;
         *)
-            bundle exec rake parallel:$1
+            bundle exec rake parallel:$1 CI_SEED=$CI_SEED GROUP_SIZE=$2 GROUP=$3
 esac
