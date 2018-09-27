@@ -23,3 +23,7 @@ group :opf_plugins do
 
 	gem 'openproject-auth_saml', git: 'https://github.com/finnlabs/openproject-auth_saml', branch: 'dev'
 end
+
+group :development, :test do
+    gem 'ladle'
+end
