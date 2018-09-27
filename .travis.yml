@@ -77,7 +77,7 @@ before_install:
   # but installing later fails for unknown reasons.
   - nvm install --lts
 
-bundler_args: --binstubs --without production docker
+bundler_args: --binstubs --without development production docker
 
 stages:
   - prepare cache
