@@ -185,15 +185,15 @@ jobs:
       - bash script/ci/setup.sh features postgres
       - bash script/ci/runner.sh features 4 4
     - stage: test
-      name: 'plugins:units (1/1) - mysql'
+      name: 'plugins:specs (1/1) - mysql'
       script:
-      - bash script/ci/setup.sh plugins:units mysql
-      - bash script/ci/runner.sh plugins:units 1 1
+      - bash script/ci/setup.sh plugins:specs mysql
+      - bash script/ci/runner.sh plugins:specs 1 1
     - stage: test
-      name: 'plugins:units (1/1) - postgres'
+      name: 'plugins:specs (1/1) - postgres'
       script:
-      - bash script/ci/setup.sh plugins:units postgres
-      - bash script/ci/runner.sh plugins:units 1 1
+      - bash script/ci/setup.sh plugins:specs postgres
+      - bash script/ci/runner.sh plugins:specs 1 1
     - stage: test
       name: 'plugins:features (1/1) - mysql'
       script:
