@@ -82,6 +82,11 @@ en:
     button_update: "Update"
     button_export-pdf: "Download PDF"
     button_export-atom: "Download Atom"
+
+    calendar:
+      title: 'Calendar'
+      too_many: 'There are more work packages (%{count}) than can be displayed by the calendar (%{max}). Add filters to focus on the relevant ones.'
+
     description_available_columns: "Available Columns"
     description_current_position: "You are here:"
     description_select_work_package: "Select work package #%{id}"
@@ -550,6 +555,7 @@ en:
       description_options_hide: "Hide options"
       description_options_show: "Show options"
       error:
+        update_conflict_refresh: "Click here to refresh the work package and update to the newest version."
         edit_prohibited: "Editing %{attribute} is blocked for this work package. Either this attribute is derived from relations (e.g, children) or otherwise not configurable."
         format:
           date: "%{attribute} is no valid date - YYYY-MM-DD expected."
@@ -567,6 +573,7 @@ en:
       message_successful_bulk_delete: Successfully deleted work packages.
       message_successful_show_in_fullscreen: "Click here to open this work package in fullscreen view."
       message_view_spent_time: "Show spent time for this work package"
+      message_work_package_read_only: "Work package is locked in this status. No attribute other than status can be altered."
       no_value: "No value"
       inline_create:
        title: 'Click here to add a new work package to this list'
