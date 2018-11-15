@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/omniauth/omniauth-saml.git
-  revision: 89eeb83517b2333666c4cb627d416cef63ac041d
-  specs:
-    omniauth-saml (1.8.1)
-      omniauth (~> 1.3)
-      ruby-saml (~> 1.4, >= 1.4.3)
-
-GIT
   remote: https://github.com/dr0verride/RubyTree.git
   revision: 06f53ee78cc2a48377c1bd177d3bc83c1504701c
   ref: 06f53ee
@@ -16,29 +8,21 @@ GIT
 
 GIT
   remote: https://github.com/finnlabs/omniauth-openid-connect.git
-  revision: 109570739508feef40932a1adccf55ee5d28da0f
-  branch: dev
+  revision: 42c4bd27aaab986e0d8723da50314135691a0955
+  ref: 42c4bd27aaab986e0d8723da50314135691a0955
   specs:
-    omniauth-openid-connect (0.2.1)
-      addressable (~> 2.3)
-      omniauth (~> 1.1)
-      openid_connect (~> 1.1.3)
+    omniauth-openid-connect (0.3.0)
+      addressable (~> 2.5)
+      omniauth (~> 1.6.1)
+      openid_connect (~> 1.1.6)
 
 GIT
   remote: https://github.com/finnlabs/omniauth-openid_connect-providers.git
-  revision: 86f3670e127e6f4c14091e4f74f2418bd1ed63c4
-  branch: dev
+  revision: b8b9d4be88fb48a1fa4f4afd9fd226dac54430f8
+  ref: b8b9d4be88fb48a1fa4f4afd9fd226dac54430f8
   specs:
     omniauth-openid_connect-providers (0.1.0)
-      omniauth-openid-connect (>= 0.2.0)
-
-GIT
-  remote: https://github.com/finnlabs/openproject-auth_saml
-  revision: 97212abb83781aa7891d09b9fc7ab9209382d500
-  branch: dev
-  specs:
-    openproject-auth_saml (0.1.0)
-      omniauth-saml (~> 1.4)
+      omniauth-openid-connect (>= 0.2.1)
 
 GIT
   remote: https://github.com/finnlabs/rspec-example_disabler.git
@@ -92,14 +76,14 @@ GIT
       rspec-mocks (>= 2.99, < 4.0)
 
 PATH
-  remote: vendored-plugins/openproject-auth_plugins
+  remote: modules/auth_plugins
   specs:
     openproject-auth_plugins (8.2.0)
       omniauth (~> 1.0)
       rails (~> 5.0)
 
 PATH
-  remote: vendored-plugins/openproject-avatars
+  remote: modules/avatars
   specs:
     openproject-avatars (8.2.0)
       fastimage (~> 2.1.0)
@@ -107,52 +91,47 @@ PATH
       rails (~> 5.0)
 
 PATH
-  remote: vendored-plugins/openproject-backlogs
+  remote: modules/backlogs
   specs:
     openproject-backlogs (8.2.0)
       acts_as_silent_list (~> 3.0.0)
       openproject-pdf_export (= 8.2.0)
 
 PATH
-  remote: vendored-plugins/openproject-costs
+  remote: modules/costs
   specs:
     openproject-costs (8.2.0)
 
 PATH
-  remote: vendored-plugins/openproject-documents
+  remote: modules/documents
   specs:
     openproject-documents (8.2.0)
 
 PATH
-  remote: vendored-plugins/openproject-github_integration
+  remote: modules/github_integration
   specs:
     openproject-github_integration (8.2.0)
       openproject-webhooks (~> 8.2.0)
       rails (~> 5.0)
 
 PATH
-  remote: vendored-plugins/openproject-global_roles
+  remote: modules/global_roles
   specs:
     openproject-global_roles (8.2.0)
 
 PATH
-  remote: vendored-plugins/openproject-ldap_groups
-  specs:
-    openproject-ldap_groups (8.2.0)
-
-PATH
-  remote: vendored-plugins/openproject-meeting
+  remote: modules/meeting
   specs:
     openproject-meeting (8.2.0)
       icalendar (~> 2.3.0)
 
 PATH
-  remote: vendored-plugins/openproject-my_project_page
+  remote: modules/my_project_page
   specs:
     openproject-my_project_page (8.2.0)
 
 PATH
-  remote: vendored-plugins/openproject-openid_connect
+  remote: modules/openid_connect
   specs:
     openproject-openid_connect (8.2.0)
       lobby_boy (~> 0.1.3)
@@ -161,14 +140,21 @@ PATH
       rails (~> 5.0)
 
 PATH
-  remote: vendored-plugins/openproject-pdf_export
+  remote: modules/pdf_export
   specs:
     openproject-pdf_export (8.2.0)
       pdf-inspector (~> 1.3.0)
       prawn (~> 2.2)
 
 PATH
-  remote: vendored-plugins/openproject-reporting
+  remote: modules/reporting_engine
+  specs:
+    reporting_engine (8.2.0)
+      json
+      rails (~> 5.1.0)
+
+PATH
+  remote: modules/reporting
   specs:
     openproject-reporting (8.2.0)
       jquery-tablesorter (~> 1.25.5)
@@ -176,7 +162,7 @@ PATH
       reporting_engine (>= 1.1.0)
 
 PATH
-  remote: vendored-plugins/openproject-two_factor_authentication
+  remote: modules/two_factor_authentication
   specs:
     openproject-two_factor_authentication (8.2.0)
       aws-sdk-sns (~> 1.1.0)
@@ -185,23 +171,16 @@ PATH
       rotp (~> 3.3)
 
 PATH
-  remote: vendored-plugins/openproject-webhooks
+  remote: modules/webhooks
   specs:
     openproject-webhooks (8.2.0)
       rails (~> 5.0)
 
 PATH
-  remote: vendored-plugins/openproject-xls_export
+  remote: modules/xls_export
   specs:
     openproject-xls_export (8.2.0)
       spreadsheet (~> 0.8.9)
-
-PATH
-  remote: vendored-plugins/reporting_engine
-  specs:
-    reporting_engine (8.2.0)
-      json
-      rails (~> 5.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -302,7 +281,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     backports (3.11.3)
     bcrypt (3.1.11)
-    bindata (2.4.3)
+    bindata (2.4.4)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootsnap (1.1.5)
@@ -458,7 +437,7 @@ GEM
     gravatar_image_tag (1.2.0)
     hashdiff (0.3.7)
     hashery (2.1.2)
-    hashie (3.5.7)
+    hashie (3.5.6)
     health_check (2.6.0)
       rails (>= 4.0)
     html-pipeline (2.8.3)
@@ -490,8 +469,6 @@ GEM
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
     kgio (2.11.2)
-    ladle (1.0.1)
-      open4 (~> 1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -540,7 +517,9 @@ GEM
       nokogiri
     oj (3.5.0)
     okcomputer (1.16.0)
-    open4 (1.3.4)
+    omniauth-saml (1.7.0)
+      omniauth (~> 1.3)
+      ruby-saml (~> 1.4)
     openid_connect (1.1.6)
       activemodel
       attr_required (>= 1.0.0)
@@ -604,7 +583,7 @@ GEM
       rack (>= 0.4)
     rack-attack (5.2.0)
       rack
-    rack-oauth2 (1.9.2)
+    rack-oauth2 (1.9.3)
       activesupport
       attr_required
       httpclient
@@ -880,7 +859,6 @@ DEPENDENCIES
   htmldiff
   i18n-js (~> 3.0.0)
   json_spec (~> 1.1.4)
-  ladle
   launchy (~> 2.4.3)
   letter_opener
   livingstyleguide (~> 2.0.1)
@@ -895,16 +873,14 @@ DEPENDENCIES
   omniauth!
   omniauth-openid-connect!
   omniauth-openid_connect-providers!
-  omniauth-saml!
+  omniauth-saml (~> 1.7.0)
   openproject-auth_plugins!
-  openproject-auth_saml!
   openproject-avatars!
   openproject-backlogs!
   openproject-costs!
   openproject-documents!
   openproject-github_integration!
   openproject-global_roles!
-  openproject-ldap_groups!
   openproject-meeting!
   openproject-my_project_page!
   openproject-openid_connect!
