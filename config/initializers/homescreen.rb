@@ -68,7 +68,6 @@ end
 
 OpenProject::Static::Homescreen.manage :links do |links|
   static_links = OpenProject::Static::Links.links
-  next unless  EnterpriseToken.show_banners? || OpenProject::Configuration.show_community_links?
 
   links.push(
     {
