@@ -32,7 +32,7 @@ WORKDIR $APP_PATH
 
 COPY Gemfile ./Gemfile
 COPY Gemfile.* ./
-COPY vendored-plugins ./vendored-plugins
+COPY modules ./modules
 RUN bundle install --jobs 8 --retry 3 --with docker
 
 # Then, npm install node modules
