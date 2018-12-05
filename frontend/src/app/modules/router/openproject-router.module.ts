@@ -26,17 +26,41 @@
 // See doc/COPYRIGHT.rdoc for more details.
 // ++
 
-import {Component} from '@angular/core';
-import {WorkPackagesListComponent} from "core-components/routing/wp-list/wp-list.component";
-import {WorkPackagesSetComponent} from "core-components/routing/wp-set/wp-set.component";
+import {APP_INITIALIZER, Injector, NgModule} from '@angular/core';
+import {FirstRouteService} from "core-app/modules/router/first-route-service";
+import {UIRouterModule} from "@uirouter/angular";
+import {ApplicationBaseComponent} from "core-app/modules/router/base/application-base.component";
+import {
+  initializeUiRouterListeners,
+  OPENPROJECT_ROUTES,
+  uiRouterConfiguration
+} from "core-app/modules/router/openproject.routes";
 
-@Component({
-  templateUrl: './wp.calendar.component.html'
+@NgModule({
+  imports: [
+    UIRouterModule.forRoot({
+      states: OPENPROJECT_ROUTES,
+      useHash: false,
+      config: uiRouterConfiguration,
+    }),
+  ],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeUiRouterListeners,
+      deps: [Injector],
+      multi: true
+    },
+    FirstRouteService
+  ],
+  declarations: [
+    ApplicationBaseComponent
+  ],
+  entryComponents: [
+    ApplicationBaseComponent
+  ],
+  exports: [
+  ]
 })
-
-export class WorkPackagesCalendarComponent extends WorkPackagesSetComponent {
-  // overrides super
-  protected initialQueryLoading(loadingRequired:boolean) {
-    // nothing
-  }
+export class OpenprojectRouterModule {
 }

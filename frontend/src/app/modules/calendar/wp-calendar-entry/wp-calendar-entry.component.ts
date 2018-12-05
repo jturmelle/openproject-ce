@@ -26,42 +26,16 @@
 // See doc/COPYRIGHT.rdoc for more details.
 // ++
 
-import {openprojectLegacyModule} from "core-app/openproject-legacy-app";
+import {Component} from '@angular/core';
+import {WorkPackagesSetComponent} from "core-app/modules/work_packages/routing/wp-set/wp-set.component";
 
-export class CollapsibleSectionController {
-  public text:any;
-  public expanded:boolean = false;
-  public sectionTitle:string;
+@Component({
+  templateUrl: './wp-calendar-entry.component.html'
+})
 
-  constructor(public $scope:ng.IScope,
-              public $attrs:ng.IAttributes) {
-
-
-    if ($attrs['initiallyExpanded']) {
-      this.expanded = true;
-    }
-  }
-
-  public toggle() {
-    this.expanded = !this.expanded;
+export class WorkPackagesCalendarEntryComponent extends WorkPackagesSetComponent {
+  // overrides super
+  protected initialQueryLoading(loadingRequired:boolean) {
+    // nothing
   }
 }
-
-function CollapsibleSection():any {
-  return {
-    restrict: 'E',
-    replace: true,
-    transclude: true,
-    template: require('!!raw-loader!./collapsible-section.directive.html'),
-
-    scope: {
-      sectionTitle: '@'
-    },
-
-    bindToController: true,
-    controller: CollapsibleSectionController,
-    controllerAs: '$ctrl'
-  };
-}
-
-openprojectLegacyModule.directive('collapsibleSection', CollapsibleSection);
