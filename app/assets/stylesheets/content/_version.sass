@@ -26,49 +26,13 @@
 // See docs/COPYRIGHT.rdoc for more details.
 //++
 
-.op-context-menu--overlay
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  display: none
+.controller-versions
+  .-grid
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr))
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr))
 
-  // Disable pointer events on this element
-  // since it spans the entire body
-  // and EDGE doesn't like it.
-  pointer-events: none
 
-  .dropdown
-    pointer-events: initial
-
-#work-package-context-menu, #column-context-menu
-  &.action-menu
-    position: absolute
-    z-index: 1000
-    // initial styles
-    // are overridden immediately on first reposition
-    // by contextMenuService
-    top: 0
-    left: 0
-    visibility: hidden
-
-#work-package-context-menu.action-menu
-  position: fixed
-
-.hascontextmenu
-  cursor: context-menu
-
-// Unless mobile
-// hide the context menu until focused/hovered
-html:not(.-browser-mobile)
-  .context-menu--icon
-    opacity: 0
-
-    &:hover, &:focus
-      opacity: 100
-
-.context-menu--reveal
-  &:hover, &:focus
-    .context-menu--icon
-      opacity: 100
+  @media only screen and (max-width: 679px)
+    .-grid
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr))
