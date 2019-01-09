@@ -33,7 +33,7 @@ ruby '~> 2.5.1'
 gem 'actionpack-xml_parser', '~> 2.0.0'
 gem 'activemodel-serializers-xml', '~> 1.0.1'
 gem 'activerecord-session_store', '~> 1.1.0'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 gem 'responders', '~> 2.4'
 gem "listen", "~> 3.1" # Use for event-based reloaders
 
@@ -124,7 +124,7 @@ gem 'secure_headers', '~> 6.0.0'
 # Providing health checks
 gem 'okcomputer', '~> 1.16.0'
 
-gem 'gon', '~> 6.2.0'
+gem 'gon', '~> 6.2.1'
 
 # catch exceptions and send them to any airbrake compatible backend
 # don't require by default, instead load on-demand when actually configured
@@ -136,7 +136,7 @@ gem 'transactional_lock', git: 'https://github.com/finnlabs/transactional_lock.g
 gem 'prawn', '~> 2.2'
 gem 'prawn-table', '~> 0.2.2'
 
-gem 'cells-rails', '~> 0.0.6'
+gem 'cells-rails', '~> 0.0.9'
 gem 'cells-erb', '~> 0.0.8'
 
 gem 'meta-tags', '~> 2.6.0'
@@ -180,7 +180,7 @@ gem 'plaintext', '0.1.0'
 
 gem 'rest-client', '~> 2.0'
 
-gem 'ruby-progressbar', '~> 1.9.0', require: false
+gem 'ruby-progressbar', '~> 1.10.0', require: false
 
 group :test do
   gem 'rack-test', '~> 1.0.0'
