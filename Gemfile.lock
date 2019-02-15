@@ -94,70 +94,75 @@ GIT
 PATH
   remote: modules/auth_plugins
   specs:
-    openproject-auth_plugins (8.2.1)
+    openproject-auth_plugins (8.3.0)
       omniauth (~> 1.0)
 
 PATH
   remote: modules/auth_saml
   specs:
-    openproject-auth_saml (8.2.1)
+    openproject-auth_saml (8.3.0)
       omniauth-saml (~> 1.10.1)
 
 PATH
   remote: modules/avatars
   specs:
-    openproject-avatars (8.2.1)
+    openproject-avatars (8.3.0)
       fastimage (~> 2.1.0)
       gravatar_image_tag (~> 1.2.0)
 
 PATH
   remote: modules/backlogs
   specs:
-    openproject-backlogs (8.2.1)
+    openproject-backlogs (8.3.0)
       acts_as_silent_list (~> 3.0.0)
-      openproject-pdf_export (= 8.2.1)
+      openproject-pdf_export (= 8.3.0)
 
 PATH
   remote: modules/costs
   specs:
-    openproject-costs (8.2.1)
+    openproject-costs (8.3.0)
 
 PATH
   remote: modules/documents
   specs:
-    openproject-documents (8.2.1)
+    openproject-documents (8.3.0)
 
 PATH
   remote: modules/github_integration
   specs:
-    openproject-github_integration (8.2.1)
+    openproject-github_integration (8.3.0)
       openproject-webhooks
 
 PATH
   remote: modules/global_roles
   specs:
-    openproject-global_roles (8.2.1)
+    openproject-global_roles (8.3.0)
 
 PATH
   remote: modules/grids
   specs:
-    grids (8.2.1)
+    grids (8.3.0)
+
+PATH
+  remote: modules/ldap_groups
+  specs:
+    openproject-ldap_groups (8.3.0)
 
 PATH
   remote: modules/meeting
   specs:
-    openproject-meeting (8.2.1)
+    openproject-meeting (8.3.0)
       icalendar (~> 2.5.0)
 
 PATH
   remote: modules/my_project_page
   specs:
-    openproject-my_project_page (8.2.1)
+    openproject-my_project_page (8.3.0)
 
 PATH
   remote: modules/openid_connect
   specs:
-    openproject-openid_connect (8.2.1)
+    openproject-openid_connect (8.3.0)
       lobby_boy (~> 0.1.3)
       omniauth-openid_connect-providers (~> 0.1)
       openproject-auth_plugins (~> 8.0)
@@ -165,28 +170,28 @@ PATH
 PATH
   remote: modules/pdf_export
   specs:
-    openproject-pdf_export (8.2.1)
+    openproject-pdf_export (8.3.0)
       pdf-inspector (~> 1.3.0)
       prawn (~> 2.2)
 
 PATH
   remote: modules/reporting_engine
   specs:
-    reporting_engine (8.2.1)
+    reporting_engine (8.3.0)
       json
 
 PATH
   remote: modules/reporting
   specs:
-    openproject-reporting (8.2.1)
+    openproject-reporting (8.3.0)
       jquery-tablesorter (~> 1.25.5)
-      openproject-costs (= 8.2.1)
+      openproject-costs (= 8.3.0)
       reporting_engine (>= 1.1.0)
 
 PATH
   remote: modules/two_factor_authentication
   specs:
-    openproject-two_factor_authentication (8.2.1)
+    openproject-two_factor_authentication (8.3.0)
       aws-sdk-sns (~> 1.1.0)
       messagebird-rest (~> 1.3.2)
       rotp (~> 3.3)
@@ -194,12 +199,12 @@ PATH
 PATH
   remote: modules/webhooks
   specs:
-    openproject-webhooks (8.2.1)
+    openproject-webhooks (8.3.0)
 
 PATH
   remote: modules/xls_export
   specs:
-    openproject-xls_export (8.2.1)
+    openproject-xls_export (8.3.0)
       spreadsheet (~> 0.8.9)
 
 GEM
@@ -456,7 +461,7 @@ GEM
       actionpack (>= 3.0)
       multi_json
       request_store (>= 1.0)
-    grape (1.1.0)
+    grape (1.2.3)
       activesupport
       builder
       mustermann-grape (~> 1.0.0)
@@ -464,7 +469,7 @@ GEM
       rack-accept
       virtus (>= 1.0.0)
     gravatar_image_tag (1.2.0)
-    hashdiff (0.3.7)
+    hashdiff (0.3.8)
     hashery (2.1.2)
     hashie (3.6.0)
     health_check (3.0.0)
@@ -501,6 +506,8 @@ GEM
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
     kgio (2.11.2)
+    ladle (1.0.1)
+      open4 (~> 1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.7.0)
@@ -560,6 +567,7 @@ GEM
     omniauth-saml (1.10.1)
       omniauth (~> 1.3, >= 1.3.2)
       ruby-saml (~> 1.7)
+    open4 (1.3.4)
     openid_connect (1.1.6)
       activemodel
       attr_required (>= 1.0.0)
@@ -862,7 +870,7 @@ GEM
     webfinger (1.1.0)
       activesupport
       httpclient (>= 2.4)
-    webmock (3.1.0)
+    webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -918,13 +926,14 @@ DEPENDENCIES
   friendly_id (~> 5.2.1)
   fuubar (~> 2.3.2)
   gon (~> 6.2.1)
-  grape (~> 1.1)
+  grape (~> 1.2.3)
   grids!
   health_check
   html-pipeline (~> 2.8.0)
   htmldiff
   i18n-js (~> 3.2.0)
   json_spec (~> 1.1.4)
+  ladle
   launchy (~> 2.4.3)
   letter_opener
   livingstyleguide (~> 2.0.1)
@@ -949,6 +958,7 @@ DEPENDENCIES
   openproject-documents!
   openproject-github_integration!
   openproject-global_roles!
+  openproject-ldap_groups!
   openproject-meeting!
   openproject-my_project_page!
   openproject-openid_connect!
@@ -1028,11 +1038,11 @@ DEPENDENCIES
   unicorn-worker-killer
   warden (~> 1.2)
   warden-basic_auth (~> 0.2.1)
-  webmock (~> 3.1.0)
+  webmock (~> 3.5.0)
   will_paginate (~> 3.1.0)
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.6.1p33
 
 BUNDLED WITH
    2.0.1

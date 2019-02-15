@@ -89,6 +89,10 @@ lol:
       further_information_after: crwdns102690:0crwdne102690:0
     calendar:
       removal: crwdns102692:0crwdne102692:0
+  global_search:
+    overwritten_tabs:
+      wiki_pages: Wiki
+      messages: Forum
   groups:
     index:
       no_results_title_text: crwdns102694:0crwdne102694:0
@@ -1076,7 +1080,6 @@ lol:
   label_all_open_wps: crwdns104154:0crwdne104154:0
   label_always_visible: crwdns104156:0crwdne104156:0
   label_announcement: crwdns104158:0crwdne104158:0
-  label_and_its_subprojects: crwdns104160:0%{value}crwdne104160:0
   label_api_access_key: crwdns104162:0crwdne104162:0
   label_api_access_key_created_on: crwdns104164:0%{value}crwdne104164:0
   label_api_access_key_type: crwdns104166:0crwdne104166:0
@@ -1441,7 +1444,6 @@ lol:
   label_role_search: crwdns104880:0crwdne104880:0
   label_scm: crwdns104882:0crwdne104882:0
   label_search: crwdns104884:0crwdne104884:0
-  label_search_titles_only: crwdns104886:0crwdne104886:0
   label_send_information: crwdns104888:0crwdne104888:0
   label_send_test_email: crwdns104890:0crwdne104890:0
   label_settings: crwdns104892:0crwdne104892:0
@@ -2588,7 +2590,11 @@ lol:
     revoke_my_application_confirmation: Do you really want to remove this application?
       This will revoke %{token_count} active for it.
     my_registered_applications: Registered OAuth applications
-  button_remove_widget: crwdns113478:0crwdne113478:0
-  label_my_page_block: crwdns113480:0crwdne113480:0
-  label_responsible_for_work_packages: crwdns113482:0crwdne113482:0
-  label_visible_elements: crwdns113484:0crwdne113484:0
+  button_remove_widget: crwdns114430:0crwdne114430:0
+  label_and_its_subprojects: crwdns114432:0%{value}crwdne114432:0
+  label_my_page_block: crwdns114434:0crwdne114434:0
+  label_responsible_for_work_packages: crwdns114436:0crwdne114436:0
+  label_search_titles_only: crwdns114438:0crwdne114438:0
+  label_visible_elements: crwdns114440:0crwdne114440:0
+  setting_security_badge_displayed: crwdns114442:0crwdne114442:0
+  text_notice_security_badge_displayed_html: crwdns114444:0%{information_panel_path}crwdnd114444:0%{information_panel_label}crwdne114444:0
