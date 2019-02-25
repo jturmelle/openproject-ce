@@ -37,7 +37,7 @@ ko:
     button_duplicate: 복제
     button_edit: 편집
     button_filter: 필터
-    button_advanced_filter: Advanced filter
+    button_advanced_filter: 고급 필터
     button_list_view: 목록 보기
     button_show_view: 전체화면 보기
     button_log_time: 작업시간 기록
@@ -774,7 +774,7 @@ ko:
         messages_on_field: "%{messages} 는 유효하지 않습니다."
     error_could_not_resolve_version_name: 버전 이름을 확인할 수 없습니다.
     error_could_not_resolve_user_name: 사용자 이름을 확인할 수 없습니다.
-    error_attachment_upload: "'%{name}' 파일 업로드 실패: %{error}"
+    error_attachment_upload: 'File failed to upload: %{error}'
     error_attachment_upload_permission: 이 리소스에서 파일을 업로드할 수 있는 권한이 없습니다.
     units:
       workPackage:
@@ -800,3 +800,7 @@ ko:
         all_projects: all projects
         project_and_subprojects: and all subprojects
         search_for: Search for
+    label_board: Board
+    label_board_plural: Boards
+    label_wp_id_added_by: "#%{id} added by %{author}"
+    notice_no_results_to_display: No visible results to display.

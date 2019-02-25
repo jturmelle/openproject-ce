@@ -838,7 +838,7 @@ ca:
         messages_on_field: 'Aquest camp no és vàlid: %{messages}'
     error_could_not_resolve_version_name: No es pot determinar el nom de versió
     error_could_not_resolve_user_name: No es pot determinar el nom d'usuari
-    error_attachment_upload: 'File ''%{name}'' failed to upload: %{error}'
+    error_attachment_upload: 'File failed to upload: %{error}'
     error_attachment_upload_permission: You don't have the permission to upload files
       on this resource.
     units:
@@ -865,3 +865,7 @@ ca:
         all_projects: all projects
         project_and_subprojects: and all subprojects
         search_for: Search for
+    label_board: Board
+    label_board_plural: Boards
+    label_wp_id_added_by: "#%{id} added by %{author}"
+    notice_no_results_to_display: No visible results to display.

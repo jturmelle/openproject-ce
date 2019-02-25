@@ -118,6 +118,11 @@ hi:
       no_results_title_text: There are currently no users part of this group.
     memberships:
       no_results_title_text: There are currently no projects part of this group.
+  incoming_mails:
+    ignore_filenames: 'Specify a list of names to ignore when processing attachments
+      for incoming mails (e.g., signatures or icons). Enter one filename per line.
+
+'
   projects:
     delete:
       scheduled: Deletion has been scheduled and is perfomed in the background. You
@@ -226,6 +231,8 @@ hi:
     x_descendants:
       one: एक वंशज काम पैकेज
       other: "%{count} work package descendants"
+    bulk:
+      could_not_be_saved: 'The following work packages could not be saved:'
     move:
       no_common_statuses_exists: सभी चयनित कार्य पैकेज के लिए कोई स्थिति उपलब्ध नहीं
         है । उनकी हैसियत नहीं बदली जा सकती ।
@@ -508,6 +515,7 @@ hi:
         unchangeable: परिवर्तित नहीं किया जा सकता ।
         unremovable: cannot be removed.
         wrong_length: is the wrong length (should be %{count} characters).
+        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: At least one option needs to be available.
@@ -2218,6 +2226,7 @@ hi:
   setting_mail_handler_api_key: API key
   setting_mail_handler_body_delimiters: Truncate emails after one of these lines
   setting_mail_handler_body_delimiter_regex: Truncate emails matching this regex
+  setting_mail_handler_ignore_filenames: Ignored mail attachments
   setting_new_project_user_role_id: Role given to a non-admin user who creates a project
   setting_password_active_rules: Active character classes
   setting_password_count_former_banned: Number of most recently used passwords banned

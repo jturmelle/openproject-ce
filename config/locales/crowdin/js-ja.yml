@@ -759,7 +759,7 @@ ja:
         messages_on_field: 'このフィールドは無効です: %{messages}'
     error_could_not_resolve_version_name: バージョン名を解決できませんでした。
     error_could_not_resolve_user_name: ユーザ名を特定できません
-    error_attachment_upload: 'ファイル ''%{name}'' のアップロードに失敗しました: %{error}'
+    error_attachment_upload: 'ファイルのアップロードに失敗しました: %{error}'
     error_attachment_upload_permission: このリソースでファイルをアップロードする権限がありません。
     units:
       workPackage:
@@ -785,3 +785,7 @@ ja:
         all_projects: すべてのプロジェクト
         project_and_subprojects: そしてすべてのサブプロジェクト
         search_for: 検索対象
+    label_board: ボード
+    label_board_plural: ボード
+    label_wp_id_added_by: "#%{id}が%{author}によって追加されました"
+    notice_no_results_to_display: 表示結果はありません。

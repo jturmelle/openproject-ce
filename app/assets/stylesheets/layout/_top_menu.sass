@@ -63,11 +63,6 @@ $search-input-height: 30px
   border-bottom-style: solid
   @include varprop(border-bottom-width, header-border-bottom-width)
   @include varprop(border-bottom-color, header-border-bottom-color)
-
-  ::-webkit-input-placeholder
-    @include varprop(color, header-item-font-color)
-  ::-moz-placeholder
-    @include varprop(color, header-item-font-color)
   .menu_root
     margin: 0
     padding: 0
@@ -210,8 +205,6 @@ $search-input-height: 30px
     .ng-select-container
       background: transparent
       @include varprop(border-color, header-item-font-color)
-      &:hover
-        @include varprop(border-color, header-item-font-hover-color)
 
     .ng-arrow-wrapper
       display: none

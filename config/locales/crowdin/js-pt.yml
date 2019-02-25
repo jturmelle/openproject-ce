@@ -834,8 +834,7 @@ pt:
         messages_on_field: 'Este campo é inválido: %{messages}'
     error_could_not_resolve_version_name: Não consegui resolver o nome da versão
     error_could_not_resolve_user_name: Não consegui resolver o nome do utilizador
-    error_attachment_upload: 'Ocorreu um erro ao carregar o ficheiro ''%{name}'':
-      %{error}'
+    error_attachment_upload: 'File failed to upload: %{error}'
     error_attachment_upload_permission: Não tem permissão para carregar ficheiros
       para este recurso.
     units:
@@ -862,3 +861,7 @@ pt:
         all_projects: all projects
         project_and_subprojects: and all subprojects
         search_for: Search for
+    label_board: Board
+    label_board_plural: Boards
+    label_wp_id_added_by: "#%{id} added by %{author}"
+    notice_no_results_to_display: No visible results to display.
