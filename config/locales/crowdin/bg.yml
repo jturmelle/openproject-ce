@@ -512,7 +512,6 @@ bg:
         unchangeable: cannot be changed.
         unremovable: cannot be removed.
         wrong_length: е грешна дължина (трябва да бъде %{count} знаци).
-        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: At least one option needs to be available.

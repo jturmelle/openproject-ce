@@ -514,7 +514,6 @@ nl:
         unchangeable: kan niet worden gewijzigd.
         unremovable: cannot be removed.
         wrong_length: is de verkeerde lengte (dient %{count} karakters te zijn).
-        unremovable: kan niet verwijderd worden.
       models:
         custom_field:
           at_least_one_custom_option: Ten minste één optie moet beschikbaar zijn.

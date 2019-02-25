@@ -511,7 +511,6 @@ ru:
         unchangeable: изменить нельзя.
         unremovable: cannot be removed.
         wrong_length: неправильная длина (должно быть %{count} знаков).
-        unremovable: удалить нельзя.
       models:
         custom_field:
           at_least_one_custom_option: По крайней мере один параметр должен быть доступен.

@@ -515,7 +515,6 @@ it:
         unchangeable: non può essere modificato.
         unremovable: cannot be removed.
         wrong_length: è della lunghezza sbagliata (dovrebbe essere %{count} caratteri).
-        unremovable: impossibile rimuovere.
       models:
         custom_field:
           at_least_one_custom_option: Deve essere disponibile almeno un'opzione.

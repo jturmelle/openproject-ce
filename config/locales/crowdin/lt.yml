@@ -510,7 +510,6 @@ lt:
         unchangeable: cannot be changed.
         unremovable: cannot be removed.
         wrong_length: yra neteisingo ilgio (turi būti %{count} simbolių).
-        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: Turi būti prieinama bent viena savybė.
