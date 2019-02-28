@@ -150,6 +150,30 @@ sv-SE:
     general_text_yes: ja
     general_text_No: Nej
     general_text_Yes: Ja
+    grid:
+      add_modal:
+        choose_widget: Choose widget
+      widgets:
+        documents:
+          title: Documents
+          no_results: No documents yet.
+        news:
+          title: Nyheter
+          at: at
+          no_results: Inget nytt att rapportera.
+        time_entries_current_user:
+          title: Spent time (last 7 days)
+          no_results: No time entries for the last 7 days.
+        work_packages_accountable:
+          title: Work packages I am accountable for
+        work_packages_assigned:
+          title: Arbetspaket som tilldelats till mig
+        work_packages_created:
+          title: Work packages created by me
+        work_packages_watched:
+          title: Work packages watched by me
+        work_packages_calendar:
+          title: Kalender
     label_activate: Aktivera
     label_activity_no: Aktivitetspost nummer %{activityNo}
     label_activity_with_comment_no: Aktivitetspost nummer %{activityNo} har en användarkommentar.

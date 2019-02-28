@@ -64,6 +64,7 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
 
   public currentValue:string = '';
   public expanded:boolean = false;
+  public noResults:boolean = true;
   public results:any[];
   public suggestions:any[];
 
@@ -78,7 +79,8 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
     all_projects: this.I18n.t('js.global_search.all_projects'),
     current_project: this.I18n.t('js.global_search.current_project'),
     current_project_and_all_descendants: this.I18n.t('js.global_search.current_project_and_all_descendants'),
-    search: this.I18n.t('js.global_search.search') + ' ...',
+    search: this.I18n.t('js.global_search.search'),
+    search_dots: this.I18n.t('js.global_search.search') + ' ...',
     close_search: this.I18n.t('js.global_search.close_search')
   };
 
@@ -97,8 +99,11 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.$element = jQuery(this.elementRef.nativeElement);
+
+    // check searchterm on init, expand / collapse search bar and set correct classes
     this.ngSelectComponent.filterValue = this.currentValue = this.globalSearchService.searchTerm;
     this.expanded = (this.ngSelectComponent.filterValue.length > 0);
+    jQuery('#top-menu').toggleClass('-global-search-expanded', this.expanded);
 
     this.searchTermChanged$
       .pipe(
@@ -140,8 +145,8 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
 
   // open or close mobile search
   public toggleMobileSearch() {
-    jQuery('#top-menu').toggleClass('-global-search-expanded');
     this.expanded = !this.expanded;
+    jQuery('#top-menu').toggleClass('-global-search-expanded', this.expanded);
   }
 
   // load selected item
@@ -190,6 +195,13 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
     this.openCloseMenu(this.currentValue);
   }
 
+  // If Enter key is pressed before result list is loaded submit search in current scope
+  public onEnterBeforeResultsLoaded() {
+    if (this.noResults) {
+      this.searchInScope(this.currentScope);
+    }
+  }
+
   // get work packages result list and append it to suggestions
   private getSearchResult(term:string) {
     this.autocompleteWorkPackages(term).then((values) => {
@@ -214,6 +226,7 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
     this.dynamicCssService.requireHighlighting();
 
     this.$element.find('.ui-autocomplete--loading').show();
+    this.noResults = true;
 
     let idOnly:boolean = false;
 
@@ -301,12 +314,23 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
     }
   }
 
+  public blur() {
+    this.ngSelectComponent.filterValue = '';
+    (<HTMLInputElement> document.activeElement).blur();
+  }
+
   private redirectToWp(id:string) {
     window.location = this.PathHelperService.workPackagePath(id) as unknown as Location;
   }
 
   private hideSpinner():void {
-    this.$element.find('.ui-autocomplete--loading').hide();
+    this.$element.find('.ui-autocomplete--loading').hide()
+    this.noResults = false;
+  }
+
+  private get currentScope():string {
+    let serviceScope = this.globalSearchService.projectScope;
+    return (serviceScope === '') ? 'current_project_and_all_descendants' : serviceScope;
   }
 
   private unregister() {
