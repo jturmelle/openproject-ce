@@ -530,6 +530,7 @@ vi:
         unchangeable: không thể thay đổi.
         unremovable: cannot be removed.
         wrong_length: is the wrong length (should be %{count} characters).
+        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: Ít nhất một lựa chọn cần phải được cung cấp.

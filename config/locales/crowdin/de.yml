@@ -543,6 +543,7 @@ de:
         unchangeable: kann nicht geändert werden.
         unremovable: cannot be removed.
         wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben).
+        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: Mindestens ein Wert muss verfügbar sein.

@@ -529,6 +529,7 @@ sv-SE:
         unchangeable: kan inte ändras.
         unremovable: cannot be removed.
         wrong_length: har fel längd (måste vara %{count} tecken).
+        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: At least one option needs to be available.

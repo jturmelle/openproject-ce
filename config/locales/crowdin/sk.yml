@@ -537,6 +537,7 @@ sk:
         unchangeable: nie je možné zmeniť.
         unremovable: cannot be removed.
         wrong_length: má chybnú dĺžku (správne má byť %{count} znakov).
+        unremovable: cannot be removed.
       models:
         custom_field:
           at_least_one_custom_option: Musí byť k dispozícii aspoň jedna možnosť.

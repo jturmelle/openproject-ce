@@ -137,6 +137,8 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
         this.toggleMobileSearch();
         // open ng-select menu on default
         jQuery('.ng-input input').focus();
+      } else if (this.ngSelectComponent.filterValue.length === 0) {
+        this.ngSelectComponent.focus();
       } else {
         this.submitNonEmptySearch();
       }
@@ -175,7 +177,7 @@ export class GlobalSearchInputComponent implements OnInit, OnDestroy {
     this.expanded = true;
     jQuery('#top-menu').addClass('-global-search-expanded');
     // load result list after page reload
-    if (this.isFirstFocus && this.currentValue.length > 0) {
+    if (this.isFirstFocus && (this.currentValue || '').length > 0) {
       this.isFirstFocus = false;
       this.getSearchResult(this.ngSelectComponent.filterValue);
     }
